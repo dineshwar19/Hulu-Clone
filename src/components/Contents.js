@@ -12,36 +12,36 @@ function Contents() {
 
   quantum.register();
 
-  const fetchData = async () => {
-    try {
-      const apiUrl = `https://api.themoviedb.org/3${
-        requests[genre]?.url || requests.fetchTrending.url
-      }`;
-      const response = await fetch(apiUrl);
-
-      if (!response.ok) {
-        throw new Error(
-          "Failed to fetch data. Please check your internet connection and try again."
-        );
-      }
-
-      const result = await response.json();
-
-      if (result.results.length === 0) {
-        throw new Error("No movies found for the selected genre.");
-      }
-
-      setData(result.results);
-      setError(null);
-    } catch (err) {
-      setError(err.message);
-      setData(null);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const apiUrl = `https://api.themoviedb.org/3${
+          requests[genre]?.url || requests.fetchTrending.url
+        }`;
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error(
+            "Failed to fetch data. Please check your internet connection and try again."
+          );
+        }
+
+        const result = await response.json();
+
+        if (result.results.length === 0) {
+          throw new Error("No movies found for the selected genre.");
+        }
+
+        setData(result.results);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        setData(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
     fetchData();
   }, [genre]);
 
