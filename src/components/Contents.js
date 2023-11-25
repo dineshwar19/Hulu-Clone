@@ -10,13 +10,17 @@ function Contents() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3${
-            requests[genre]?.url || requests.fetchTrending.url
-          }`
-        );
+        const apiUrl = `https://api.themoviedb.org/3${
+          requests[genre]?.url || requests.fetchTrending.url
+        }`;
+        console.log("API URL:", apiUrl);
+
+        const response = await fetch(apiUrl);
         if (!response.ok) throw new Error("Data is not received");
+
         const data = await response.json();
+        console.log("API Response:", data);
+
         setData(data.results);
       } catch (err) {
         console.error(err.message);

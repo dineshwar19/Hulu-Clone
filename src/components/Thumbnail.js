@@ -9,7 +9,11 @@ function Thumbnail({ data }) {
 
   return (
     <div className="p-2 group cursor-pointer transition duration-300 md:hover:scale-110 hover:scale-105 w-full">
-      <a href={`https://www.themoviedb.org/movie/${data.id}-${data.original_title}`}>
+      <a
+        href={`https://www.themoviedb.org/movie/${data.id}-${data.original_title}`}
+        rel="noreferrer"
+        target="_blank"
+      >
         <LazyLoadImage
           src={
             `${BASE_PATH}${data.poster_path || data.backdrop_path}` ||
