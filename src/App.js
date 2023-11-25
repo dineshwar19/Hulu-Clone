@@ -6,6 +6,7 @@ import Contents from "./components/Contents";
 function App() {
 
   return (
+    
     <div>
       <Header />
       <NavBar />

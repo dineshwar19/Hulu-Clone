@@ -1,5 +1,5 @@
 import React from "react";
-import hulu from "../assets/Hulu_Logo.svg.png"
+import hulu from "../assets/Hulu_Logo.svg.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import HeaderItems from "./HeaderItems";
 import { TiHomeOutline } from "react-icons/ti";
@@ -7,7 +7,7 @@ import { IoIosSearch } from "react-icons/io";
 import { HiOutlineCollection } from "react-icons/hi";
 import { MdOutlineVerified } from "react-icons/md";
 import { HiOutlineLightningBolt } from "react-icons/hi";
-import { CiUser } from "react-icons/ci"
+import { CiUser } from "react-icons/ci";
 
 function Header() {
   const icons = [
@@ -50,7 +50,7 @@ function Header() {
             <HeaderItems key={icon.id} title={icon.title} Icon={icon.Icon} />
           ))}
         </div>
-        <LazyLoadImage 
+        <LazyLoadImage
           src={hulu}
           alt="hulu"
           width={100}
